@@ -1,0 +1,28 @@
+
+
+
+/**
+ * global
+ */
+
+ .containerenter-enter {
+   opacity: 0.01;
+   transition: opacity 1s ease-in;
+ }
+
+ .containerenter-enter.containerenter-enter-active {
+   opacity: 1;
+ }
+
+ .contacontainerAnimateiner-leave {
+   opacity: 1;
+   transition: opacity 5s ease-in;
+ }
+
+ .containerenter-leave.containerenter-leave-active {
+   opacity: 0;
+ }
+
+/**
+ * component
+ */
