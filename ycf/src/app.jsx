@@ -7,18 +7,23 @@ import './style/bootstrap.css'
 import './style/app.scss';
 
 injectTapEventPlugin();
-let store = createStore(todoApp)
+//let store = createStore(todoApp);
 
 class AppContainer extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
+        //return (
+        //    <MuiThemeProvider>
+        //        <Provider store={store}>
+        //            <RouterComponent />
+        //        </Provider>
+        //    </MuiThemeProvider>
+        //)
         return (
             <MuiThemeProvider>
-                <Provider store={store}>
                     <RouterComponent />
-                </Provider>
             </MuiThemeProvider>
         )
     }
