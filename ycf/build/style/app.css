@@ -1568,19 +1568,27 @@ address {
 /**
  * global
  */
-.containerenter-enter {
-  opacity: 0.01;
-  transition: opacity 1s ease-in; }
+html, body, #root, #root > div {
+  height: 100%;
+  width: 100%; }
 
-.containerenter-enter.containerenter-enter-active {
-  opacity: 1; }
+.infinite-list-item {
+  height: 50px; }
 
-.contacontainerAnimateiner-leave {
-  opacity: 1;
-  transition: opacity 5s ease-in; }
+.height_full {
+  height: 100%; }
 
-.containerenter-leave.containerenter-leave-active {
-  opacity: 0; }
+.loading-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); }
+
+.loading-content {
+  text-align: center;
+  margin-top: 50%; }
 
 /**
  * component

@@ -4,25 +4,30 @@
 /**
  * global
  */
+html, body,#root,#root>div {
+        height: 100%;
+        width: 100%;
 
- .containerenter-enter {
-   opacity: 0.01;
-   transition: opacity 1s ease-in;
- }
-
- .containerenter-enter.containerenter-enter-active {
-   opacity: 1;
- }
-
- .contacontainerAnimateiner-leave {
-   opacity: 1;
-   transition: opacity 5s ease-in;
- }
-
- .containerenter-leave.containerenter-leave-active {
-   opacity: 0;
- }
-
+}
+.infinite-list-item {
+        height: 50px;
+}
+.height_full {
+        height: 100%;
+        // overflow-y: hidden;
+}
+.loading-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.3);
+}
+.loading-content {
+        text-align: center;
+        margin-top: 50%;
+}
 /**
  * component
  */

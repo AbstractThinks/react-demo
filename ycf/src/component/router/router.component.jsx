@@ -4,9 +4,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-router';
 
-import IndexComponent from '../index/index.component';
+import BoilerplateComponent from '../boilerplate/boilerplate.component';
 import LoginComponent from '../login/login.component';
-import ReduxComponent from '../redux/redux.component';
 
 class RouterComponent extends React.Component {
     Loading() {
@@ -16,10 +15,9 @@ class RouterComponent extends React.Component {
         return (
             <Router history={hashHistory}>
               <Route path="/">
-                <IndexRoute component={IndexComponent} onEnter={this.Loading}/>
-                <Route path="/index" component={IndexComponent} onEnter={this.Loading}/>
+                <IndexRoute component={BoilerplateComponent} onEnter={this.Loading}/>
+                <Route path="/boilerplate" component={BoilerplateComponent} onEnter={this.Loading}/>
                 <Route path="/login" component={LoginComponent} onEnter={this.Loading}/>
-                <Route path="/redux" component={ReduxComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )

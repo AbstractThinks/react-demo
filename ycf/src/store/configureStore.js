@@ -1,20 +1,24 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
-import rootReducer from '../reducer/reducers';
+import {
+    createStore,
+    applyMiddleware,
+    combineReducers
+} from 'redux'
+import createLogger from 'redux-logger'
+import {boilerplateReducer1, boilerplateReducer2} from '../reducer/boilerplateReducer';
 import callAPIMiddleware from '../middleware/callMiddleware';
 
-const loggerMiddleware = createLogger();
+const loggerMiddleware = createLogger()
+const rootReducer = combineReducers({
+        boilerplateReducer1,
+        boilerplateReducer2
+});
 
-export default function configureStore(preloadedState) {
-  return createStore(
-    rootReducer,
-    preloadedState,
-    applyMiddleware(
-      thunkMiddleware,
-      callAPIMiddleware,
-      loggerMiddleware
+const createStoreWithMiddleware = applyMiddleware(
+    // thunkMiddleware,
+    callAPIMiddleware,
+    loggerMiddleware
+)(createStore)
 
-    )
-  )
+export default function configureStore(initialState) {
+    return createStoreWithMiddleware(rootReducer, initialState)
 }
