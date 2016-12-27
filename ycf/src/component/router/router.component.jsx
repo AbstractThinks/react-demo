@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-r
 
 import IndexComponent from '../index/index.component';
 import LoginComponent from '../login/login.component';
-
+import ReduxComponent from '../redux/redux.component';
 
 class RouterComponent extends React.Component {
     Loading() {
@@ -19,6 +19,7 @@ class RouterComponent extends React.Component {
                 <IndexRoute component={IndexComponent} onEnter={this.Loading}/>
                 <Route path="/index" component={IndexComponent} onEnter={this.Loading}/>
                 <Route path="/login" component={LoginComponent} onEnter={this.Loading}/>
+                <Route path="/redux" component={ReduxComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )
