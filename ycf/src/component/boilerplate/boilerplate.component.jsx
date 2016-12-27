@@ -33,6 +33,11 @@ class BoilerplateComponent extends React.Component {
         console.log("iScroll starts scrolling")
     }
     render() {
+            var i = 0, len = 1000, listOfLi = [];
+
+            for(i; i < len; i++) {
+                    listOfLi.push(<li key={i}>Row {i+1}</li>)
+            }
         // let {boilerplateReducer1} =this.props;
         // console.log("boilerplateReducer1 :" + boilerplateReducer1);
         // if (true) {
@@ -43,30 +48,40 @@ class BoilerplateComponent extends React.Component {
         //             <div key="content" className="height_full">
         //                     <div className="container">
         //                             <div className="row">
+        //                                     <div>
+        //                                     <ReactIScroll
+        //                                     iScroll={iScroll}
+        //                                     options={{
+        //                                             mouseWheel: true,
+        //                                             scrollbars: true
+        //                                      }}
+        //                                      onScrollStart={this.onScrollStart}>
+        //                                       <ul>
+        //                                         {listOfLi}
+        //                                       </ul>
+        //                                       <div>Long content...</div>
+        //                                     </ReactIScroll>
+        //                                     </div>
         //
         //                             </div>
         //                     </div>
         //             </div>
         //         </QueueAnim>
         //     )
-        var i = 0, len = 1000, listOfLi = [];
 
-        for(i; i < len; i++) {
-                listOfLi.push(<li key={i}>Row {i+1}</li>)
-        }
         return (
                 <div>
-                        <h1>Example of scrollable list</h1>
                         <ReactIScroll
                         iScroll={iScroll}
                         options={{
                                 mouseWheel: true,
-                                scrollbars: true
+                                scrollbars: false
                          }}
                          onScrollStart={this.onScrollStart}>
                           <ul>
                             {listOfLi}
                           </ul>
+                          <div>Long content...</div>
                         </ReactIScroll>
               </div>
         )

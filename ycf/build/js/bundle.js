@@ -27302,22 +27302,6 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            // let {boilerplateReducer1} =this.props;
-	            // console.log("boilerplateReducer1 :" + boilerplateReducer1);
-	            // if (true) {
-	            //         return <LoadingComponent />
-	            // }
-	            // return (
-	            //         <QueueAnim animConfig={animaConfig}>
-	            //             <div key="content" className="height_full">
-	            //                     <div className="container">
-	            //                             <div className="row">
-	            //
-	            //                             </div>
-	            //                     </div>
-	            //             </div>
-	            //         </QueueAnim>
-	            //     )
 	            var i = 0,
 	                len = 1000,
 	                listOfLi = [];
@@ -27330,27 +27314,58 @@
 	                    i + 1
 	                ));
 	            }
+	            // let {boilerplateReducer1} =this.props;
+	            // console.log("boilerplateReducer1 :" + boilerplateReducer1);
+	            // if (true) {
+	            //         return <LoadingComponent />
+	            // }
+	            // return (
+	            //         <QueueAnim animConfig={animaConfig}>
+	            //             <div key="content" className="height_full">
+	            //                     <div className="container">
+	            //                             <div className="row">
+	            //                                     <div>
+	            //                                     <ReactIScroll
+	            //                                     iScroll={iScroll}
+	            //                                     options={{
+	            //                                             mouseWheel: true,
+	            //                                             scrollbars: true
+	            //                                      }}
+	            //                                      onScrollStart={this.onScrollStart}>
+	            //                                       <ul>
+	            //                                         {listOfLi}
+	            //                                       </ul>
+	            //                                       <div>Long content...</div>
+	            //                                     </ReactIScroll>
+	            //                                     </div>
+	            //
+	            //                             </div>
+	            //                     </div>
+	            //             </div>
+	            //         </QueueAnim>
+	            //     )
+	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Example of scrollable list'
-	                ),
 	                _react2.default.createElement(
 	                    _reactIscroll2.default,
 	                    {
 	                        iScroll: _iscrollProbe2.default,
 	                        options: {
 	                            mouseWheel: true,
-	                            scrollbars: true
+	                            scrollbars: false
 	                        },
 	                        onScrollStart: this.onScrollStart },
 	                    _react2.default.createElement(
 	                        'ul',
 	                        null,
 	                        listOfLi
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        'Long content...'
 	                    )
 	                )
 	            );
