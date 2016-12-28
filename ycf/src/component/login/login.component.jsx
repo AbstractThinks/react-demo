@@ -1,7 +1,5 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import { hashHistory } from 'react-router';
 
 const animaConfig = [
@@ -23,28 +21,27 @@ class LoginComponent extends React.Component {
 
     }
     login() {
-        hashHistory.push('index');
+        hashHistory.push('boilerplate');
     }
     render() {
         return (
             <QueueAnim animConfig={animaConfig}>
                 <div key="content">
-                    <div className="container">
-                        <div className="row text-center">
-                            <TextField
-                              floatingLabelText="用户名"
-                            />
-                        </div>
-                        <div className="row text-center">
-                            <TextField
-                              floatingLabelText="密码"
-                            />
-                        </div>
-                        <div className="row text-center">
-                            <RaisedButton label="登录" secondary={true} onClick={this.login.bind(this)}/>
-                        </div>
+                    <div className="container height_full" >
+                        <form className="ycf-login_form height_full">
+                                <div className="form-group">
+                                        <label >Email address</label>
+                                        <input type="email" className="form-control"  placeholder="Enter email" />
+                                </div>
+                                <div className="form-group">
+                                        <label >Password</label>
+                                        <input type="password" className="form-control"  placeholder="Password" />
+                                </div>
+                                <div className="form-group">
+                                 <a  onClick={this.login.bind(this)} className="btn btn-default">登录</a>
+                                 </div>
+                        </form>
                     </div>
-
                 </div>
             </QueueAnim>
             )

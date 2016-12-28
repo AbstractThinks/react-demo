@@ -2,16 +2,18 @@ import {
     createStore,
     applyMiddleware,
     combineReducers
-} from 'redux'
-import createLogger from 'redux-logger'
-import {boilerplateReducer1, boilerplateReducer2} from '../reducer/boilerplateReducer';
+} from 'redux';
+import createLogger from 'redux-logger';
+// import {boilerplateReducer1, boilerplateReducer2} from '../reducer/boilerplateReducer';
+import * as reducers from '../reducer/rootReducer';
 import callAPIMiddleware from '../middleware/callMiddleware';
 
 const loggerMiddleware = createLogger()
-const rootReducer = combineReducers({
-        boilerplateReducer1,
-        boilerplateReducer2
-});
+// const rootReducer = combineReducers({
+//         boilerplateReducer1,
+//         boilerplateReducer2
+// });
+const rootReducer = combineReducers(reducers);
 
 const createStoreWithMiddleware = applyMiddleware(
     // thunkMiddleware,

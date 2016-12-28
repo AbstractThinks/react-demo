@@ -4,7 +4,7 @@ var path = require('path');
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+// var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -33,7 +33,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style", 'css!postcss')
+                loader: ExtractTextPlugin.extract("style", 'css!sass')
             },
             {
                 test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=/asset/[name].[ext]'
@@ -44,16 +44,16 @@ module.exports = {
         return [precss, autoprefixer];
     },
     plugins: [
-        new ExtractTextPlugin('/style/app.css'),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            files: '',
-            server: {
-                //指定服务器启动根目录
-                baseDir: './'
-            }
-        })
+        new ExtractTextPlugin('/style/app.css')
+        // new BrowserSyncPlugin({
+        //     host: 'localhost',
+        //     port: 3000,
+        //     files: '',
+        //     server: {
+        //         //指定服务器启动根目录
+        //         baseDir: './'
+        //     }
+        // })
     ]
 
 };

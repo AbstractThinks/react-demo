@@ -4,14 +4,15 @@ var path = require('path');
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './src/app.jsx'
-    ],
+    entry: {
+        app:'./src/app.jsx',
+        vendor:['react']
+    },
     output: {
         path: __dirname+'/build/',
+        // publicPath: '/',
         filename: '/js/bundle.js'
     },
     resolve: {
@@ -44,16 +45,25 @@ module.exports = {
         return [precss, autoprefixer];
     },
     plugins: [
-        new ExtractTextPlugin('/style/app.css'),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            files: '',
-            server: {
-                //指定服务器启动根目录
-                baseDir: './'
-            }
-        })
+        new webpack.optimize.CommonsChunkPlugin({
+                name: ['vendor'],
+                minChunks: Infinity,
+                filename: '/js/vendor.js'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+                output: {
+                        comments: false,  // remove all comments
+                },
+                compress: {
+                        warnings: false
+                }
+        }),
+        new webpack.DefinePlugin({
+                'process.env': {
+                        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+                }
+        }),
+        new ExtractTextPlugin('/style/app.css')
     ]
 
 };

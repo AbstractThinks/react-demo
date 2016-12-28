@@ -1,6 +1,6 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
-var Loader = require('halogen/BeatLoader');
+var Loader = require('halogen/PulseLoader');
 
 const animaConfig = [
     { opacity: [1, 0], translateY: [0, 50] },
@@ -14,11 +14,9 @@ class LoadingComponent extends React.Component {
         render() {
                 return (
                         <QueueAnim animConfig={animaConfig}>
-                            <div key="content" className="loading-container">
-                                <div className="loading-container">
-                                        <div className="loading-content">
-                                                 <Loader color="#26A65B" size="16px"/>
-                                        </div>
+                            <div key="content">
+                                <div className="ycf-loading_container">
+                                        <Loader color="#26A65B" size="16px"/>
                                 </div>
                             </div>
                         </QueueAnim>
