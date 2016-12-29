@@ -6,7 +6,7 @@ import LoadingComponent from '../loading/loading.component';
 import 'isomorphic-fetch';
 import assign from 'lodash/assign';
 import iScroll from 'iscroll/build/iscroll-probe';
-import ReactIScroll from 'reactjs-iscroll';
+import ReactIScroll from 'react-iscroll';
 
 const animaConfig = [
     { opacity: [1, 0], translateY: [0, 50] },

@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-r
 
 import BoilerplateComponent from '../boilerplate/boilerplate.component';
 import LoginComponent from '../login/login.component';
+import ListBoilerplateComponent from '../listboilerplate/list.component';
 
 class RouterComponent extends React.Component {
     Loading() {
@@ -18,6 +19,7 @@ class RouterComponent extends React.Component {
                 <IndexRoute component={BoilerplateComponent} onEnter={this.Loading}/>
                 <Route path="/boilerplate" component={BoilerplateComponent} onEnter={this.Loading}/>
                 <Route path="/login" component={LoginComponent} onEnter={this.Loading}/>
+                <Route path="/list" component={ListBoilerplateComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )
