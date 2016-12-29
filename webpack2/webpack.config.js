@@ -1,18 +1,23 @@
 'use strict';
 var path = require('path');
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
+var precss       = require('precss');  //Precss 可以在 CSS 文件中使用 Sass 类型的 Markup
+var autoprefixer = require('autoprefixer'); //根据 Can I use 的 数据，按需给无前缀代码自动加厂商前缀。
+// var cssnext = require('cssnext'); //CSS 的转译器（transpiler），根据目前仍处于草案阶段、未被浏览器实现的标准把代码转译成符合目前浏览器实现的 CSS
+// var cssnano = require('cssnano'); //使用 cssnano 执行各种优化，删除空白和注释，并且压缩代码
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 var webpack = require('webpack');
+
+
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 var plugins = [
       new webpack.LoaderOptionsPlugin({
               options: {
                       postcss: function () {
-                              return [precss, autoprefixer];
+                              return [precss, autoprefixer,cssnext,cssnano];
+                        //        return [precss, autoprefixer];
                       }
               }
       }),
@@ -103,13 +108,14 @@ module.exports = {
                           }
                   },
                   {
-                      test: /\.css$/,
-                      loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
-                  },
-                  {
                       test: /\.scss$/,
                       loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader?sourceMap' })
                   },
+                  {
+                      test: /\.css$/,
+                      loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader?sourceMap' })
+                  },
+
                   {
                       test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=/asset/[name].[ext]'
                   }

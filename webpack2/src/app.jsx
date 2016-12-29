@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import RouterComponent from './component/router/router.component';
-import configureStore from './store/configureStore'
-import { Provider } from 'react-redux'
-// import './style/bootstrap.css'
+import configureStore from './store/configureStore';
+import { Provider } from 'react-redux';
+require('./style/bootstrap.css');
 // import './style/app.scss';
 
 // injectTapEventPlugin();
