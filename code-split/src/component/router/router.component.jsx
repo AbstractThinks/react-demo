@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-r
 // import BoilerplateComponent from '../boilerplate/boilerplate.component';
 // import LoginComponent from '../login/login.component';
 import ListBoilerplateComponent from '../listboilerplate/list.component';
+import InfiniteComponent from '../infinite/window';
 
 
 const BoilerplateComponent = (location, cb) => {
@@ -32,6 +33,7 @@ class RouterComponent extends React.Component {
                 <Route path="/boilerplate" getComponent={BoilerplateComponent} onEnter={this.Loading}/>
                 <Route path="/login" getComponent={LoginComponent} onEnter={this.Loading}/>
                 <Route path="/list" component={ListBoilerplateComponent} onEnter={this.Loading}/>
+                <Route path="/infinite/window" component={InfiniteComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )

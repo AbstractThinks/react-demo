@@ -16,8 +16,8 @@ var plugins = [
       new webpack.LoaderOptionsPlugin({
               options: {
                       postcss: function () {
-                              return [precss, autoprefixer,cssnext,cssnano];
-                        //        return [precss, autoprefixer];
+                            //   return [precss, autoprefixer,cssnext,cssnano];
+                               return [precss, autoprefixer];
                       }
               }
       }),
