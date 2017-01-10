@@ -9,6 +9,8 @@ import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-r
 import ListBoilerplateComponent from '../listboilerplate/list.component';
 import InfiniteComponent from '../infinite/window';
 
+import StickyheaderComponent from '../listview/stickyheader/stickyheader';
+import StickyComponent from '../listview/sticky/sticky';
 
 const BoilerplateComponent = (location, cb) => {
     require.ensure([], require => {
@@ -34,6 +36,8 @@ class RouterComponent extends React.Component {
                 <Route path="/login" getComponent={LoginComponent} onEnter={this.Loading}/>
                 <Route path="/list" component={ListBoilerplateComponent} onEnter={this.Loading}/>
                 <Route path="/infinite/window" component={InfiniteComponent} onEnter={this.Loading}/>
+                <Route path="/listview/stickyheader" component={StickyheaderComponent} onEnter={this.Loading}/>
+                <Route path="/listview/sticky" component={StickyComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )

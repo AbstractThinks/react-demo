@@ -1,2 +1,647 @@
-webpackJsonp([0],{352:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function i(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function s(e){var t=e.status;if(t>=200&&t<300)return e;var n=new Error(e.statusText);throw n.response=e,n.errorCode=t,n}Object.defineProperty(t,"__esModule",{value:!0});var l=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(2),c=r(u),f=n(69),p=n(78),d=r(p),h=(n(354),n(355)),m=r(h);n(149);var y=n(150),v=r(y),g=n(148),b=r(g),_=n(151),E=r(_),j=[{opacity:[1,0],translateY:[0,50]},{opacity:[1,0],translateY:[0,-50]}],O=function(e){function t(e){o(this,t);var n=a(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.state={isLoading:!0,list:[],currentPage:1,lastPage:!1},n}return i(t,e),l(t,[{key:"componentWillMount",value:function(){var e=this,t="../../../json/person/1.json";this.loadData(t).then(function(t){console.log(t),e.setState((0,v.default)({},e.state,t.data))})}},{key:"componentDidMount",value:function(){var e=this;setTimeout(function(){e.setState({isLoading:!1})},2e3)}},{key:"componentWillUnmount",value:function(){}},{key:"handleRefresh",value:function(e,t){var n=this.state,r=n.currentPage,o=n.lastPage,a=void 0;"up"===e?5===r?this.state.lastPage=!0:a="../../../json/person/"+(r+1)+".json":(o=!1,r=1);var i=this;this.loadData(a,e,t).then(function(e){for(var t=i.state.list.concat(),n=0;n<e.data.list.length;n++)t.push(e.data.list[n]);e.data.list=t;var r=(0,v.default)({},i.state,e.data);i.setState(r)})}},{key:"loadData",value:function(e,t,n){var r=e,o={method:"get",headers:{Accept:"application/json","Content-Type":"application/json; charset=utf-8"}};return fetch(r,o).then(s).then(function(e){return e.json().then(function(t){return{json:t,response:e}})}).then(function(e){var t=e.json,n=e.response;if(!n.ok||t.success!==!0){var r=new Error(t.message||"获取数据出错");return r.json=t,Promise.reject(r,t)}return Promise.resolve(t)}).catch(function(e){return Promise.reject(e)})}},{key:"render",value:function(){if(this.state.isLoading)return c.default.createElement(m.default,null);this.state.list;return c.default.createElement(d.default,{animConfig:j},c.default.createElement("div",{key:"content",className:"height_full"},c.default.createElement("div",{className:"container"},c.default.createElement("div",{className:"row"},c.default.createElement(E.default,{iScroll:b.default,handleRefresh:this.handleRefresh.bind(this),className:""},c.default.createElement("ul",{className:"example-paging"},this.state.list.map(function(e){return c.default.createElement("li",{key:e.id},e.id)})))))))}}]),t}(c.default.Component);t.default=(0,f.connect)(function(e){return{boilerplateReducer1:e.boilerplateReducer1}})(O)},354:function(e,t){"use strict";function n(e){return{types:["LOAD_boilerplateReducer1_REQUEST","LOAD_boilerplateReducer1_SUCCESS","LOAD_boilerplateReducer1_FAILURE"],callAPI:function(){return fetch("http://myapi.com/users/"+e+"/posts")},payload:{userId:e}}}function r(e,t){return{types:["ADD_COMMENT_REQUEST","ADD_COMMENT_SUCCESS","ADD_COMMENT_FAILURE"],callAPI:function(){return fetch("http://myapi.com/posts/"+e+"/comments",{method:"post",headers:{Accept:"application/json","Content-Type":"application/json"},body:JSON.stringify({message:t})})},payload:{postId:e,message:t}}}Object.defineProperty(t,"__esModule",{value:!0}),t.loadboilerplateReducer1=n,t.addComment=r},355:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function i(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(2),u=r(l),c=n(78),f=r(c),p=n(362),d=[{opacity:[1,0],translateY:[0,50]},{opacity:[1,0],translateY:[0,-50]}],h=function(e){function t(e){return o(this,t),a(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))}return i(t,e),s(t,[{key:"render",value:function(){return u.default.createElement(f.default,{animConfig:d},u.default.createElement("div",{key:"content"},u.default.createElement("div",{className:"ycf-loading_container"},u.default.createElement(p,{color:"#26A65B",size:"16px"}))))}}]),t}(u.default.Component);t.default=h},356:function(e,t,n){"use strict";var r=n(359);e.exports=function(e,t){for(var n=Object(e),o=Object.prototype.hasOwnProperty,a=1;a<arguments.length;a++){var i=arguments[a];if(null!=i){var s=Object(i);for(var l in s)o.call(s,l)&&(n[l]=s[l])}}var u={};for(var l in n)u[r(l)]=n[l];return u}},357:function(e,t){"use strict";e.exports=document.createElement("div").style},358:function(e,t){"use strict";var n;e.exports=function(){if(n)return n;var e=window.getComputedStyle(document.documentElement,""),t=(Array.prototype.slice.call(e).join("").match(/-(moz|webkit|ms)-/)||""===e.OLink&&["","o"])[1];return n="-"+t+"-"}},359:function(e,t,n){"use strict";var r,o=n(357),a=["Moz","Webkit","O","ms"];e.exports=function(e,t){var n;if(e in o)return e;var i=e.charAt(0).toUpperCase()+e.substr(1);if(r){if(n=r+i,n in o)return n}else for(var s=0;s<a.length;++s)if(n=a[s]+i,n in o)return r=a[s],n;return t?void 0:e}},360:function(e,t,n){"use strict";var r=n(361),o=n(358)(),a=0;e.exports=function(e){var t="anim_"+ ++a+ +new Date,n="@"+o+"keyframes "+t+" {";for(var i in e){n+=i+" {";for(var s in e[i]){var l=":"+e[i][s]+";";n+=o+s+l,n+=s+l}n+="}"}return n+="}",r(n),t}},361:function(e,t){"use strict";var n;e.exports=function(e){n||(n=document.createElement("style"),document.getElementsByTagName("head")[0].appendChild(n),n=n.sheet||n.styleSheet);var t=(n.cssRules||n.rules).length;return n.insertRule(e,t),n}},362:function(e,t,n){"use strict";var r=n(2),o=n(356),a=n(360),i={"0%":{transform:"scale(1)",opacity:1},"45%":{transform:"scale(0.1)",opacity:.7},"80%":{transform:"scale(1)",opacity:1}},s=a(i),l=r.createClass({displayName:"Loader",propTypes:{loading:r.PropTypes.bool,color:r.PropTypes.string,size:r.PropTypes.string,margin:r.PropTypes.string},getDefaultProps:function(){return{loading:!0,color:"#ffffff",size:"15px",margin:"2px"}},getBallStyle:function(){return{backgroundColor:this.props.color,width:this.props.size,height:this.props.size,margin:this.props.margin,borderRadius:"100%",verticalAlign:this.props.verticalAlign}},getAnimationStyle:function(e){var t=[s,"0.75s",.12*e+"s","infinite","cubic-bezier(.2,.68,.18,1.08)"].join(" "),n="both";return{animation:t,animationFillMode:n}},getStyle:function(e){return o(this.getBallStyle(e),this.getAnimationStyle(e),{display:"inline-block"})},renderLoader:function(e){return e?r.createElement("div",{id:this.props.id,className:this.props.className},r.createElement("div",{style:this.getStyle(1)}),r.createElement("div",{style:this.getStyle(2)}),r.createElement("div",{style:this.getStyle(3)})):null},render:function(){return this.renderLoader(this.props.loading)}});e.exports=l}});
+webpackJsonp([0],{
+
+/***/ 365:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(70);
+
+var _rcQueueAnim = __webpack_require__(82);
+
+var _rcQueueAnim2 = _interopRequireDefault(_rcQueueAnim);
+
+var _boilerplateActionCreator = __webpack_require__(367);
+
+var _loading = __webpack_require__(368);
+
+var _loading2 = _interopRequireDefault(_loading);
+
+__webpack_require__(152);
+
+var _assign = __webpack_require__(153);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _iscrollProbe = __webpack_require__(151);
+
+var _iscrollProbe2 = _interopRequireDefault(_iscrollProbe);
+
+var _reactIscroll = __webpack_require__(154);
+
+var _reactIscroll2 = _interopRequireDefault(_reactIscroll);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var animaConfig = [{ opacity: [1, 0], translateY: [0, 50] }, { opacity: [1, 0], translateY: [0, -50] }];
+var iscrollOption = {
+    mouseWheel: true,
+    scrollbars: true,
+    pullUp: true,
+    pullDown: true
+};
+
+function checkStatus(response) {
+    var status = response.status;
+    if (status >= 200 && status < 300) {
+        return response;
+    }
+    var error = new Error(response.statusText);
+    error.response = response;
+    error.errorCode = status;
+    throw error;
+}
+
+var BoilerplateComponent = function (_React$Component) {
+    _inherits(BoilerplateComponent, _React$Component);
+
+    function BoilerplateComponent(props) {
+        _classCallCheck(this, BoilerplateComponent);
+
+        var _this = _possibleConstructorReturn(this, (BoilerplateComponent.__proto__ || Object.getPrototypeOf(BoilerplateComponent)).call(this, props));
+
+        _this.state = {
+            isLoading: true,
+            list: [],
+            currentPage: 1,
+            lastPage: false
+        };
+        return _this;
+    }
+
+    _createClass(BoilerplateComponent, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var that = this;
+            var url = '../../../json/person/1.json';
+            this.loadData(url).then(function (data) {
+                console.log(data);
+                that.setState((0, _assign2.default)({}, that.state, data.data));
+            });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var that = this;
+            setTimeout(function () {
+                that.setState({
+                    isLoading: false
+                });
+            }, 2000);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {}
+    }, {
+        key: 'handleRefresh',
+        value: function handleRefresh(downOrUp, callback) {
+            var _state = this.state,
+                currentPage = _state.currentPage,
+                lastPage = _state.lastPage;
+
+            var url = void 0;
+            if (downOrUp === 'up') {
+                // 加载更多
+                if (currentPage === 5) {
+                    this.state.lastPage = true;
+                } else {
+                    url = '../../../json/person/' + (currentPage + 1) + '.json';
+                }
+            } else {
+                // 刷新
+                lastPage = false;
+                currentPage = 1;
+            }
+            // this.setState({currentPage,lastPage}, () => {this.loadData(downOrUp, callback)});
+            var that = this;
+            this.loadData(url, downOrUp, callback).then(function (data) {
+                var newList = that.state.list.concat();
+                for (var i = 0; i < data.data.list.length; i++) {
+                    newList.push(data.data.list[i]);
+                }
+                data.data.list = newList;
+                var obj = (0, _assign2.default)({}, that.state, data.data);
+                that.setState(obj);
+            });
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData(url, downOrUp, callback) {
+            var fetchUrl = url;
+            var fetchOptions = {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+            };
+            return fetch(fetchUrl, fetchOptions).then(checkStatus).then(function (response) {
+                return response.json().then(function (json) {
+                    return { json: json, response: response };
+                });
+            }).then(function (_ref) {
+                var json = _ref.json,
+                    response = _ref.response;
+
+                if (!response.ok || json.success !== true) {
+                    // 根据后台实际返回数据来定义错误格式
+                    var error = new Error(json.message || '获取数据出错');
+                    error.json = json;
+                    return Promise.reject(error, json);
+                }
+                return Promise.resolve(json);
+            }).catch(function (error) {
+                return Promise.reject(error);
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            // let {boilerplateReducer1} =this.props;
+            // console.log("boilerplateReducer1 :" + boilerplateReducer1);
+            if (this.state.isLoading) {
+                return _react2.default.createElement(_loading2.default, null);
+            }
+            var list = this.state.list;
+
+            return _react2.default.createElement(
+                _rcQueueAnim2.default,
+                { animConfig: animaConfig },
+                _react2.default.createElement(
+                    'div',
+                    { key: 'content', className: 'height_full' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'container' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                _reactIscroll2.default,
+                                { iScroll: _iscrollProbe2.default, handleRefresh: this.handleRefresh.bind(this), className: '' },
+                                _react2.default.createElement(
+                                    'ul',
+                                    { className: 'example-paging' },
+                                    this.state.list.map(function (item) {
+                                        return _react2.default.createElement(
+                                            'li',
+                                            { key: item.id },
+                                            item.id
+                                        );
+                                    })
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return BoilerplateComponent;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(function (state) {
+    return {
+        boilerplateReducer1: state.boilerplateReducer1
+    };
+})(BoilerplateComponent);
+
+/***/ },
+
+/***/ 367:
+/***/ function(module, exports) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.loadboilerplateReducer1 = loadboilerplateReducer1;
+exports.addComment = addComment;
+function loadboilerplateReducer1(userId) {
+  return {
+    types: ['LOAD_boilerplateReducer1_REQUEST', 'LOAD_boilerplateReducer1_SUCCESS', 'LOAD_boilerplateReducer1_FAILURE'],
+    // shouldCallAPI: (state) => {
+    //         !state.users[userId]
+    // },
+    callAPI: function callAPI() {
+      return fetch('http://myapi.com/users/' + userId + '/posts');
+    },
+    payload: { userId: userId }
+  };
+}
+
+function addComment(postId, message) {
+  return {
+    types: ['ADD_COMMENT_REQUEST', 'ADD_COMMENT_SUCCESS', 'ADD_COMMENT_FAILURE'],
+    callAPI: function callAPI() {
+      return fetch('http://myapi.com/posts/' + postId + '/comments', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: message })
+      });
+    },
+    payload: { postId: postId, message: message }
+  };
+}
+
+/***/ },
+
+/***/ 368:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _rcQueueAnim = __webpack_require__(82);
+
+var _rcQueueAnim2 = _interopRequireDefault(_rcQueueAnim);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Loader = __webpack_require__(375);
+
+var animaConfig = [{ opacity: [1, 0], translateY: [0, 50] }, { opacity: [1, 0], translateY: [0, -50] }];
+
+var LoadingComponent = function (_React$Component) {
+    _inherits(LoadingComponent, _React$Component);
+
+    function LoadingComponent(props) {
+        _classCallCheck(this, LoadingComponent);
+
+        return _possibleConstructorReturn(this, (LoadingComponent.__proto__ || Object.getPrototypeOf(LoadingComponent)).call(this, props));
+    }
+
+    _createClass(LoadingComponent, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _rcQueueAnim2.default,
+                { animConfig: animaConfig },
+                _react2.default.createElement(
+                    'div',
+                    { key: 'content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'ycf-loading_container' },
+                        _react2.default.createElement(Loader, { color: '#26A65B', size: '16px' })
+                    )
+                )
+            );
+            // return (
+            //         <div>789</div>
+            // )
+        }
+    }]);
+
+    return LoadingComponent;
+}(_react2.default.Component);
+
+exports.default = LoadingComponent;
+
+/***/ },
+
+/***/ 369:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var getVendorPropertyName = __webpack_require__(372);
+
+module.exports = function(target, sources) {
+  var to = Object(target);
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+  for (var nextIndex = 1; nextIndex < arguments.length; nextIndex++) {
+    var nextSource = arguments[nextIndex];
+    if (nextSource == null) {
+      continue;
+    }
+
+    var from = Object(nextSource);
+
+    for (var key in from) {
+      if (hasOwnProperty.call(from, key)) {
+        to[key] = from[key];
+      }
+    }
+  }
+
+  var prefixed = {};
+  for (var key in to) {
+    prefixed[getVendorPropertyName(key)] = to[key]
+  }
+
+  return prefixed
+}
+
+
+/***/ },
+
+/***/ 370:
+/***/ function(module, exports) {
+
+"use strict";
+'use strict';
+
+module.exports = document.createElement('div').style;
+
+
+/***/ },
+
+/***/ 371:
+/***/ function(module, exports) {
+
+"use strict";
+'use strict';
+
+var cssVendorPrefix;
+
+module.exports = function() {
+
+  if (cssVendorPrefix) return cssVendorPrefix;
+
+  var styles = window.getComputedStyle(document.documentElement, '');
+  var pre = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1];
+
+  return cssVendorPrefix = '-' + pre + '-';
+}
+
+
+/***/ },
+
+/***/ 372:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var builtinStyle = __webpack_require__(370);
+var prefixes = ['Moz', 'Webkit', 'O', 'ms'];
+var domVendorPrefix;
+
+// Helper function to get the proper vendor property name. (transition => WebkitTransition)
+module.exports = function(prop, isSupportTest) {
+
+  var vendorProp;
+  if (prop in builtinStyle) return prop;
+
+  var UpperProp = prop.charAt(0).toUpperCase() + prop.substr(1);
+
+  if (domVendorPrefix) {
+
+    vendorProp = domVendorPrefix + UpperProp;
+    if (vendorProp in builtinStyle) {
+      return vendorProp;
+    }
+  } else {
+
+    for (var i = 0; i < prefixes.length; ++i) {
+      vendorProp = prefixes[i] + UpperProp;
+      if (vendorProp in builtinStyle) {
+        domVendorPrefix = prefixes[i];
+        return vendorProp;
+      }
+    }
+  }
+
+  // if support test, not fallback to origin prop name
+  if (!isSupportTest) {
+    return prop;
+  }
+
+}
+
+
+/***/ },
+
+/***/ 373:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var insertRule = __webpack_require__(374);
+var vendorPrefix = __webpack_require__(371)();
+var index = 0;
+
+module.exports = function(keyframes) {
+  // random name
+  var name = 'anim_' + (++index) + (+new Date);
+  var css = "@" + vendorPrefix + "keyframes " + name + " {";
+
+  for (var key in keyframes) {
+    css += key + " {";
+
+    for (var property in keyframes[key]) {
+      var part = ":" + keyframes[key][property] + ";";
+      // We do vendor prefix for every property
+      css += vendorPrefix + property + part;
+      css += property + part;
+    }
+
+    css += "}";
+  }
+
+  css += "}";
+
+  insertRule(css);
+
+  return name
+}
+
+
+/***/ },
+
+/***/ 374:
+/***/ function(module, exports) {
+
+"use strict";
+'use strict';
+
+var extraSheet;
+
+module.exports = function(css) {
+
+  if (!extraSheet) {
+    // First time, create an extra stylesheet for adding rules
+    extraSheet = document.createElement('style');
+    document.getElementsByTagName('head')[0].appendChild(extraSheet);
+    // Keep reference to actual StyleSheet object (`styleSheet` for IE < 9)
+    extraSheet = extraSheet.sheet || extraSheet.styleSheet;
+  }
+
+  var index = (extraSheet.cssRules || extraSheet.rules).length;
+  extraSheet.insertRule(css, index);
+
+  return extraSheet;
+}
+
+
+/***/ },
+
+/***/ 375:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var React = __webpack_require__(3);
+var assign = __webpack_require__(369);
+var insertKeyframesRule = __webpack_require__(373);
+
+/**
+ * @type {Object}
+ */
+var keyframes = {
+    '0%': {
+        transform: 'scale(1)',
+        opacity: 1
+    },
+    '45%': {
+        transform: 'scale(0.1)',
+        opacity: 0.7
+    },
+    '80%': {
+        transform: 'scale(1)',
+        opacity: 1
+    }
+};
+
+/**
+ * @type {String}
+ */
+var animationName = insertKeyframesRule(keyframes);
+
+var Loader = React.createClass({
+    displayName: 'Loader',
+
+    /**
+     * @type {Object}
+     */
+    propTypes: {
+        loading: React.PropTypes.bool,
+        color: React.PropTypes.string,
+        size: React.PropTypes.string,
+        margin: React.PropTypes.string
+    },
+
+    /**
+     * @return {Object}
+     */
+    getDefaultProps: function getDefaultProps() {
+        return {
+            loading: true,
+            color: '#ffffff',
+            size: '15px',
+            margin: '2px'
+        };
+    },
+
+    /**
+     * @return {Object}
+     */
+    getBallStyle: function getBallStyle() {
+        return {
+            backgroundColor: this.props.color,
+            width: this.props.size,
+            height: this.props.size,
+            margin: this.props.margin,
+            borderRadius: '100%',
+            verticalAlign: this.props.verticalAlign
+        };
+    },
+
+    /**
+     * @param  {Number} i
+     * @return {Object}
+     */
+    getAnimationStyle: function getAnimationStyle(i) {
+        var animation = [animationName, '0.75s', i * 0.12 + 's', 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
+        var animationFillMode = 'both';
+
+        return {
+            animation: animation,
+            animationFillMode: animationFillMode
+        };
+    },
+
+    /**
+     * @param  {Number} i
+     * @return {Object}
+     */
+    getStyle: function getStyle(i) {
+        return assign(this.getBallStyle(i), this.getAnimationStyle(i), {
+            display: 'inline-block'
+        });
+    },
+
+    /**
+     * @param  {Boolean} loading
+     * @return {ReactComponent || null}
+     */
+    renderLoader: function renderLoader(loading) {
+        if (loading) {
+            return React.createElement(
+                'div',
+                { id: this.props.id, className: this.props.className },
+                React.createElement('div', { style: this.getStyle(1) }),
+                React.createElement('div', { style: this.getStyle(2) }),
+                React.createElement('div', { style: this.getStyle(3) })
+            );
+        }
+
+        return null;
+    },
+
+    render: function render() {
+        return this.renderLoader(this.props.loading);
+    }
+});
+
+module.exports = Loader;
+
+/***/ }
+
+});
 //# sourceMappingURL=boilerplate.js.map
