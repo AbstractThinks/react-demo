@@ -1,4 +1,4 @@
-/*!
+#root,#root>div,#root>div>div,body,html{height:100%;width:100%}.height_full{height:100%;//:hidden}.ycf-loading_container{position:absolute;top:0;right:0;left:0;bottom:0;background:rgba(0,0,0,.3)}.ycf-loading_container,.ycf-login_form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.ycf-login_form{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.example-paging li{height:80px}.test_example{width:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}/*!
  * Bootstrap v3.3.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)

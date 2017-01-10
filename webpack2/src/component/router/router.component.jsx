@@ -4,9 +4,22 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, Link, IndexLink, hashHistory } from 'react-router';
 
-import BoilerplateComponent from '../boilerplate/boilerplate.component';
-import LoginComponent from '../login/login.component';
+// import BoilerplateComponent from '../boilerplate/boilerplate.component';
+// import LoginComponent from '../login/login.component';
 import ListBoilerplateComponent from '../listboilerplate/list.component';
+import InfiniteComponent from '../infinite/window';
+
+
+const BoilerplateComponent = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../boilerplate/boilerplate.component').default)
+    },'/boilerplate')
+}
+const LoginComponent = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../login/login.component').default)
+    },'/login')
+}
 
 class RouterComponent extends React.Component {
     Loading() {
@@ -16,14 +29,11 @@ class RouterComponent extends React.Component {
         return (
             <Router history={hashHistory}>
               <Route path="/">
-                <IndexRoute component={BoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/boilerplate" component={BoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/login" component={LoginComponent} onEnter={this.Loading}/>
+                <IndexRoute getComponent={BoilerplateComponent} onEnter={this.Loading}/>
+                <Route path="/boilerplate" getComponent={BoilerplateComponent} onEnter={this.Loading}/>
+                <Route path="/login" getComponent={LoginComponent} onEnter={this.Loading}/>
                 <Route path="/list" component={ListBoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/infinite/window" component={ListBoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/infinite/chat" component={ListBoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/infinite/index" component={ListBoilerplateComponent} onEnter={this.Loading}/>
-                <Route path="/infinite/borderlesswindow" component={ListBoilerplateComponent} onEnter={this.Loading}/>
+                <Route path="/infinite/window" component={InfiniteComponent} onEnter={this.Loading}/>
               </Route>
             </Router>
         )

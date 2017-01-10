@@ -67,7 +67,7 @@ if (isProd) {
 
 }
 module.exports = {
-  devtool:isProd ? 'source-map' : 'eval',    //不能和UglifyJsPlugin插件一起用，会引起报错
+  devtool:isProd ?  'eval' : 'source-map',    //不能和UglifyJsPlugin插件一起用，会引起报错
   context: __dirname + "/src",
   entry: {
     app: "./app.jsx",
@@ -90,7 +90,9 @@ module.exports = {
   // }
   output: {
     path: __dirname + "/dist",
-    filename: "[name].bundle.js"
+    filename: "[name].bundle.js",
+    publicPath: '/dist/',
+    chunkFilename: '[name].js'
   },
 
   resolve: {
@@ -107,15 +109,15 @@ module.exports = {
                               presets:  ['es2015', 'react', 'stage-0']
                           }
                   },
-                  {
-                      test: /\.scss$/,
-                      loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader?sourceMap' })
-                  },
+
                   {
                       test: /\.css$/,
                       loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader?sourceMap' })
                   },
-
+                  {
+                      test:/\.scss$/,
+                      loader:  ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader!postcss-loader?sourceMap' })
+                  },
                   {
                       test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=/asset/[name].[ext]'
                   }
